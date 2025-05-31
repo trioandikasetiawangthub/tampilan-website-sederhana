@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil Trio Andika Setiawan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #81c784, #4caf50);
+      color: #2e2e2e;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .profile-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    /* Left side: biodata */
+    .profile-left {
+      background: #4caf50;
+      color: #fff;
+      padding: 40px 30px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      font-weight: 600;
+    }
+
+    .profile-left h1 {
+      font-weight: 700;
+      margin: 0 0 12px;
+      font-size: 2.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .profile-left .tagline {
+      margin: 0 0 32px;
+      font-weight: 300;
+      opacity: 0.85;
+      font-size: 1.1rem;
+    }
+
+    .biodata-item {
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .biodata-label {
+      min-width: 110px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .biodata-value {
+      flex-grow: 1;
+    }
+
+    /* Social Media */
+    .social-links {
+      margin-top: 30px;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: #c8e6c9;
+      font-size: 1.1rem;
+      margin-right: 18px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #a5d6a7;
+    }
+    .social-links .icon {
+      margin-right: 8px;
+      font-size: 1.3rem;
+    }
+
+    /* Right side: skills and portfolio */
+    .profile-right {
+      padding: 40px 30px;
+      flex: 2 1 520px;
+      background: #f9f9f9;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Skills */
+    .skills-section {
+      margin-bottom: 40px;
+    }
+
+    .skills-section h2 {
+      margin: 0 0 20px;
+      font-weight: 700;
+      color: #4caf50;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #81c784;
+      padding-bottom: 5px;
+      letter-spacing: 0.07em;
+    }
+
+    .skill {
+      margin-bottom: 18px;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .skill-bar {
+      height: 14px;
+      background: #dcedc8;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: #4caf50;
+      border-radius: 10px 0 0 10px;
+      transition: width 0.7s ease-in-out;
+    }
+
+    /* Portfolio */
+    .portfolio-section {
+      flex-grow: 1;
+    }
+    .portfolio-section h2 {
+      margin: 0 0 25px;
+      font-weight: 700;
+      color: #4caf50;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #81c784;
+      padding-bottom: 5px;
+      letter-spacing: 0.07em;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .portfolio-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 2px solid #4caf50;
+    }
+
+    .portfolio-info {
+      padding: 15px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-title {
+      font-weight: 700;
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      color: #2e2e2e;
+    }
+    .portfolio-desc {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .profile-container {
+        flex-direction: column;
+        max-width: 500px;
+      }
+      .profile-left, .profile-right {
+        border-radius: 20px 20px 0 0;
+      }
+      .profile-right {
+        border-radius: 0 0 20px 20px;
+        padding: 30px 20px;
+      }
+      .profile-left {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="profile-container" role="main" aria-label="Bio profile Trio Andika Setiawan">
+
+      <section class="profile-left" aria-labelledby="profile-name">
+        <h1 id="profile-name" tabindex="0">Trio Andika Setiawan</h1>
+        <p class="tagline" tabindex="0">Full Stack Developer • Problem Solver</p>
+
+        <div class="biodata-item" tabindex="0">
+          <span class="biodata-label">Nama:</span>
+          <span class="biodata-value">Trio Andika Setiawan</span>
+        </div>
+        <div class="biodata-item" tabindex="0">
+          <span class="biodata-label">TTL:</span>
+          <span class="biodata-value">Sei Rampah, 02 April 2004</span>
+        </div>
+        <div class="biodata-item" tabindex="0">
+          <span class="biodata-label">No HP:</span>
+          <span class="biodata-value">+62 95328894859</span>
+        </div>
+
+        <div class="social-links" aria-label="Social media profiles">
+          <a href="https://www.facebook.com/andika.stiawan.925" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true">📘</span> Facebook
+          </a>
+          <a href="https://twitter.com/trioandikasetiawan" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true">🐦</span> Twitter
+          </a>
+          <a href="https://www.instagram.com/trioooo.ok?igsh=MWN5dGxjbjQ2cDRsbA==" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true">📸</span> Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/trio-andika-setiawan-7a1372319?utm_source=share&utm_campaign=share_via" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true">🔗</span> LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <section class="profile-right">
+        <div class="skills-section" aria-labelledby="skills-title">
+          <h2 id="skills-title" tabindex="0">Keterampilan</h2>
+          <div class="skill" role="listitem">
+            <div class="skill-name" tabindex="0">Java</div>
+            <div class="skill-bar" aria-label="Java skill level 85%">
+              <div class="skill-bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill" role="listitem">
+            <div class="skill-name" tabindex="0">Python</div>
+            <div class="skill-bar" aria-label="Python skill level 75%">
+              <div class="skill-bar-fill" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-section" aria-labelledby="portfolio-title">
+          <h2 id="portfolio-title" tabindex="0">Portofolio</h2>
+          <div class="portfolio-grid">
+
+            <article class="portfolio-card" tabindex="0" aria-label="Project Management System">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=70" alt="Project Management System Screenshot" class="portfolio-image" loading="lazy" />
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Project Management System</h3>
+                <p class="portfolio-desc">A web app to manage team projects, track progress, and deadlines efficiently.</p>
+              </div>
+            </article>
+
+            <article class="portfolio-card" tabindex="0" aria-label="E-commerce Store">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=70" alt="E-commerce Website Screenshot" class="portfolio-image" loading="lazy" />
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">E-commerce Store</h3>
+                <p class="portfolio-desc">A responsive online store built with Java backend and modern user interface.</p>
+              </div>
+            </article>
+
+            <article class="portfolio-card" tabindex="0" aria-label="Data Analysis Tool">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=70" alt="Data analysis graphs and charts" class="portfolio-image" loading="lazy" />
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Data Analysis Tool</h3>
+                <p class="portfolio-desc">Python-powered tool for data visualization and real-time analytics dashboards.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+  </article>
+</body>
+</html>
+
